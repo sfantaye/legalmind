@@ -1,1 +1,12 @@
-
+fastapi>=0.110.0
+uvicorn[standard]>=0.29.0
+jinja2>=3.1.3
+python-dotenv>=1.0.1
+groq>=0.4.0
+langgraph>=0.0.30 # Includes langchain, langchain-core
+langchain-groq>=0.1.0
+pypdf>=4.0.0     # For PDF parsing
+python-docx>=1.1.0 # For DOCX parsing
+aiofiles>=23.2.1 # For async file operations in FastAPI
+httpx>=0.27.0    # For testing API calls
+pytest>=8.0.0    # For running tests
