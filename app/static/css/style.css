@@ -1,0 +1,89 @@
+/* app/static/css/style.css */
+body {
+    font-family: sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background: #333;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+header h1 a {
+    color: #fff;
+    text-decoration: none;
+}
+
+header nav a {
+    color: #aaa;
+    text-decoration: none;
+    margin: 0 10px;
+}
+ header nav a:hover {
+    color: #fff;
+}
+
+main {
+    flex-grow: 1;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 5px;
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+    background: #333;
+    color: #aaa;
+    font-size: 0.9em;
+}
+
+button {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+input[type="file"], input[type="text"] {
+    padding: 8px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+form {
+    margin-top: 15px;
+}
+
+label {
+    margin-right: 10px;
+}
+
+ul {
+    list-style: disc;
+    padding-left: 20px;
+}
+li {
+    margin-bottom: 10px;
+}
+
+/* Add chat-specific styles from chat.html if needed globally */
