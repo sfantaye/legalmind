@@ -49,8 +49,3 @@ LegalMind is an AI-powered legal assistant that helps users understand legal doc
     ```
 6.  Access the application at `http://localhost:8000`.
 
-## Project Structure
-
-(You can paste the structure from your prompt here)
-
----
