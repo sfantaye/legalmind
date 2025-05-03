@@ -1,1 +1,15 @@
+{% extends "layout.html" %}
 
+{% block title %}Welcome - LegalMind AI{% endblock %}
+
+{% block content %}
+<h2>Welcome to LegalMind!</h2>
+<p>Your AI-powered legal assistant.</p>
+<ul>
+    <li><a href="{{ url_for('upload_form') }}">Upload a legal document (PDF/DOCX)</a> for analysis and Q&A.</li>
+    <li>Ask general legal questions (without uploading a document - coming soon!).</li>
+    <li>Generate draft contracts like NDAs or Rental Agreements.</li>
+</ul>
+<p>Get started by uploading a document or heading straight to the assistant (feature under development).</p>
+<!-- Add link to a generic chat later if needed -->
+{% endblock %}
