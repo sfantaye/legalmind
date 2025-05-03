@@ -1,1 +1,29 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}LegalMind AI{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='/css/style.css') }}">
+    {% block head_extra %}{% endblock %}
+</head>
+<body>
+    <header>
+        <h1><a href="{{ url_for('read_root') }}">🧠 LegalMind AI Assistant</a></h1>
+        <nav>
+            <a href="{{ url_for('read_root') }}">Home</a> |
+            <a href="{{ url_for('upload_form') }}">Upload Document</a> |
+            <!-- Link to chat might need dynamic session ID or a generic entry point -->
+            <!-- <a href="#">Chat</a> -->
+        </nav>
+    </header>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+    <footer>
+        <p>© 2024 LegalMind. AI-powered assistance.</p>
+    </footer>
+    {% block scripts %}{% endblock %}
+</body>
+</html>
