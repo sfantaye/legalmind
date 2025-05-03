@@ -1,1 +1,54 @@
+{% extends "layout.html" %}
 
+{% block title %}AI Assistant - LegalMind{% endblock %}
+
+{% block head_extra %}
+<style>
+    #chatbox { height: 400px; overflow-y: scroll; border: 1px solid #ccc; padding: 10px; margin-bottom: 10px; background-color: #f9f9f9; }
+    .message { margin-bottom: 10px; padding: 8px; border-radius: 5px; }
+    .user-message { background-color: #e1f5fe; text-align: right; margin-left: 50px;}
+    .ai-message { background-color: #e8f5e9; text-align: left; margin-right: 50px;}
+    .message p { margin: 0; }
+    #chat-form { display: flex; }
+    #user-input { flex-grow: 1; padding: 10px; border: 1px solid #ccc; border-radius: 3px;}
+    #chat-form button { padding: 10px 15px; margin-left: 10px; background-color: #007bff; color: white; border: none; border-radius: 3px; cursor: pointer; }
+    #chat-form button:disabled { background-color: #ccc; cursor: not-allowed; }
+    .context-info { font-style: italic; color: #555; margin-bottom: 15px; }
+    pre { white-space: pre-wrap; word-wrap: break-word; background-color: #eee; padding: 10px; border-radius: 5px; }
+    code { font-family: monospace; }
+</style>
+{% endblock %}
+
+{% block content %}
+<h2>Legal AI Assistant</h2>
+<p class="context-info">
+    Session ID: {{ session_id }}
+    {% if has_document %}
+    <br>✅ Document context is loaded for this session.
+    {% else %}
+    <br>ℹ️ No document uploaded for this session. Ask general questions or request contract generation.
+    {% endif %}
+</p>
+
+<div id="chatbox">
+    <div class="message ai-message">
+        <p>{{ initial_message }}</p>
+        <p><small>Tip: To generate a contract, type: <code>generate contract: [type]: [details]</code> (e.g., <code>generate contract: NDA: Parties are A and B...</code>)</small></p>
+    </div>
+    <!-- Chat messages will be appended here -->
+</div>
+
+<form id="chat-form">
+    <input type="text" id="user-input" placeholder="Ask a question or type your request..." autocomplete="off" required>
+    <button type="submit" id="send-button">Send</button>
+</form>
+
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', path='/js/chat.js') }}"></script>
+<script>
+    // Pass session ID to the script
+    setupChat("{{ session_id }}");
+</script>
+{% endblock %}
