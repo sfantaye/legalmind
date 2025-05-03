@@ -14,11 +14,22 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 # Define the state structure for the graph
+# Define the state structure for the graph
 class AgentState(TypedDict):
+    # Use operator.add for messages, as we want to append them
     messages: Annotated[Sequence[BaseMessage], operator.add]
-    document_context: Annotated[Optional[str], operator.setitem] # Store extracted text
-    task_description: Annotated[Optional[str], operator.setitem] # What the user wants to do
-    contract_details: Annotated[Optional[Dict[str, Any]], operator.setitem] # Info for contract generation
+
+    # For fields where the new value should replace the old one,
+    # simply specify the type. LangGraph's default reducer is overwrite.
+    document_context: Optional[str]
+    task_description: Optional[str]
+    contract_details: Optional[Dict[str, Any]]
+
+    # Alternatively, you could explicitly use a lambda for overwrite if preferred:
+    # document_context: Annotated[Optional[str], lambda _, new_value: new_value]
+    # task_description: Annotated[Optional[str], lambda _, new_value: new_value]
+    # contract_details: Annotated[Optional[Dict[str, Any]], lambda _, new_value: new_value]
+    # But just using the type is cleaner and more common.
 
 # Define the nodes in the graph
 async def call_llm(state: AgentState):
