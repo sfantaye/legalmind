@@ -1,3 +1,4 @@
+#app/services/groq_client.py
 import os
 import logging
 from groq import Groq, AsyncGroq # Use AsyncGroq for FastAPI
